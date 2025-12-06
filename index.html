@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Mohamed | Frontend & AI Portfolio</title>
-    
+    <title>Ali Mohamed | Portfolio</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -19,129 +21,140 @@
 
     <!-- Tailwind Config -->
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
-            },
-            colors: {
-              slate: {
-                850: '#151e2e',
-                900: '#0f172a',
-                950: '#020617',
-              },
-              teal: {
-                400: '#2dd4bf',
-                500: '#14b8a6',
-                600: '#0d9488',
-              }
-            },
-            animation: {
-              'blob': 'float 10s infinite ease-in-out',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float-slow': 'floatCard 6s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
-              floatCard: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-15px)' },
-              }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    },
+                    animation: {
+                        'blob': 'float 10s infinite ease-in-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'floatCard 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        floatCard: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     </script>
 
     <style>
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #334155; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #2dd4bf; 
-      }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-      /* Scroll Reveal Animations */
-      .reveal {
-        opacity: 0;
-        transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
-        filter: blur(5px);
-        transform: translateY(30px);
-      }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
 
-      .reveal-left { transform: translateX(-100px); }
-      .reveal-right { transform: translateX(100px); }
-      .reveal-up { transform: translateY(50px); }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
 
-      .reveal.active {
-        opacity: 1;
-        transform: translate(0);
-        filter: blur(0);
-      }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2dd4bf;
+        }
 
-      /* Preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        background: #020617;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.5s ease;
-      }
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
+            filter: blur(5px);
+            transform: translateY(30px);
+        }
 
-      /* Glassmorphism */
-      .glass {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      
-      .glass-card {
-        background: rgba(30, 41, 59, 0.4);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      }
+        .reveal-left {
+            transform: translateX(-100px);
+        }
 
-      .glass-card:hover {
-        box-shadow: 0 20px 40px -5px rgba(45, 212, 191, 0.15);
-        border-color: rgba(45, 212, 191, 0.3);
-      }
+        .reveal-right {
+            transform: translateX(100px);
+        }
 
-      /* 3D Tilt Effect Container */
-      .tilt-card {
-        transform-style: preserve-3d;
-        transform: perspective(1000px);
-      }
-      
-      .tilt-inner {
-        transform: translateZ(20px);
-      }
+        .reveal-up {
+            transform: translateY(50px);
+        }
 
-      /* Gradient Text */
-      .text-gradient {
-        background: linear-gradient(to right, #2dd4bf, #3b82f6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0);
+            filter: blur(0);
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #020617;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 20px 40px -5px rgba(45, 212, 191, 0.15);
+            border-color: rgba(45, 212, 191, 0.3);
+        }
+
+        /* 3D Tilt Effect Container */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .tilt-inner {
+            transform: translateZ(20px);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #2dd4bf, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
-<script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react": "https://aistudiocdn.com/react@^19.2.1",
@@ -150,6 +163,7 @@
 }
 </script>
 </head>
+
 <body class="bg-slate-950 text-slate-300 antialiased overflow-x-hidden selection:bg-teal-500 selection:text-white">
 
     <!-- Preloader -->
@@ -166,30 +180,43 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center gap-2 group z-50">
-                    <div class="bg-gradient-to-tr from-teal-400 to-blue-500 p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-teal-500/20">
+                    <div
+                        class="bg-gradient-to-tr from-teal-400 to-blue-500 p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-teal-500/20">
                         <i class="fa-solid fa-code text-white text-lg"></i>
                     </div>
-                    <span class="text-xl font-bold text-white tracking-wide"><span class="text-teal-400">portofolio</span></span>
+                    <span class="text-xl font-bold text-white tracking-wide"><span
+                            class="text-teal-400">portofolio</span></span>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-1">
-                    <a href="#home" class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5" data-section="home">
+                    <a href="#home"
+                        class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5"
+                        data-section="home">
                         <i class="fa-solid fa-house mr-1"></i> Home
                     </a>
-                    <a href="#about" class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5" data-section="about">
+                    <a href="#about"
+                        class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5"
+                        data-section="about">
                         <i class="fa-solid fa-user mr-1"></i> About
                     </a>
-                    <a href="#skills" class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5" data-section="skills">
+                    <a href="#skills"
+                        class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5"
+                        data-section="skills">
                         <i class="fa-solid fa-fire mr-1"></i> Skills
                     </a>
-                    <a href="#projects" class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5" data-section="projects">
+                    <a href="#projects"
+                        class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5"
+                        data-section="projects">
                         <i class="fa-solid fa-briefcase mr-1"></i> Projects
                     </a>
-                    <a href="#certificates" class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5" data-section="certificates">
+                    <a href="#certificates"
+                        class="nav-link px-4 py-2 text-sm font-medium hover:text-teal-400 transition-colors rounded-full hover:bg-white/5"
+                        data-section="certificates">
                         <i class="fa-solid fa-certificate mr-1"></i> Certificates
                     </a>
-                    <a href="#contact" class="ml-4 px-6 py-2 rounded-full bg-teal-500 text-slate-950 hover:bg-teal-400 transition-all font-bold shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40 hover:-translate-y-0.5">
+                    <a href="#contact"
+                        class="ml-4 px-6 py-2 rounded-full bg-teal-500 text-slate-950 hover:bg-teal-400 transition-all font-bold shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40 hover:-translate-y-0.5">
                         <i class="fa-solid fa-envelope mr-1"></i> Contact
                     </a>
                 </div>
@@ -202,15 +229,21 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
             <button id="close-menu" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2">
                 <i class="ph ph-x text-2xl"></i>
             </button>
-            <a href="#home" class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Home</a>
-            <a href="#about" class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">About</a>
-            <a href="#skills" class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Skills</a>
-            <a href="#projects" class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Projects</a>
-            <a href="#certificates" class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Certificates</a>
+            <a href="#home"
+                class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Home</a>
+            <a href="#about"
+                class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">About</a>
+            <a href="#skills"
+                class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Skills</a>
+            <a href="#projects"
+                class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Projects</a>
+            <a href="#certificates"
+                class="mobile-link text-3xl font-bold text-white hover:text-teal-400 transition-colors">Certificates</a>
             <a href="#contact" class="mobile-link text-3xl font-bold text-teal-400">Contact</a>
         </div>
     </nav>
@@ -218,42 +251,58 @@
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
         <!-- Animated Blobs (Parallax Effect) -->
-        <div id="blob1" class="absolute top-0 right-0 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-teal-500/10 rounded-full blur-[100px] -z-10 transition-transform duration-200 ease-out"></div>
-        <div id="blob2" class="absolute bottom-0 left-0 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-blue-600/10 rounded-full blur-[100px] -z-10 transition-transform duration-200 ease-out"></div>
-        
+        <div id="blob1"
+            class="absolute top-0 right-0 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-teal-500/10 rounded-full blur-[100px] -z-10 transition-transform duration-200 ease-out">
+        </div>
+        <div id="blob2"
+            class="absolute bottom-0 left-0 w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-blue-600/10 rounded-full blur-[100px] -z-10 transition-transform duration-200 ease-out">
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
             <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-16">
-                
+
                 <!-- Text Content -->
                 <div class="text-center md:text-left flex-1 relative z-20">
-                    <div class="reveal reveal-up inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-teal-500/30 bg-slate-900/50 backdrop-blur-sm text-teal-400 text-sm font-medium tracking-wide mx-auto md:mx-0 shadow-lg shadow-teal-500/10 hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="reveal reveal-up inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-teal-500/30 bg-slate-900/50 backdrop-blur-sm text-teal-400 text-sm font-medium tracking-wide mx-auto md:mx-0 shadow-lg shadow-teal-500/10 hover:scale-105 transition-transform duration-300">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
                         </span>
                         Welcome to my world
                     </div>
-                    
-                    <h1 class="reveal reveal-up text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 leading-tight">
-                        Hi, I’m <span class="text-teal-400 inline-block hover:scale-105 transition-transform cursor-default">Ali</span><br />
-                        <span class="text-2xl md:text-4xl lg:text-5xl text-slate-400 font-normal">Frontend Developer <br class="hidden md:block" /> <span class="text-gradient font-semibold">Data Analyst</span></span>
+
+                    <h1
+                        class="reveal reveal-up text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 leading-tight">
+                        Hi, I’m <span
+                            class="text-teal-400 inline-block hover:scale-105 transition-transform cursor-default">Ali</span><br />
+                        <span class="text-2xl md:text-4xl lg:text-5xl text-slate-400 font-normal">Frontend Developer <br
+                                class="hidden md:block" /> <span class="text-gradient font-semibold">Data
+                                Analyst</span></span>
                     </h1>
 
-                    <p class="reveal reveal-up text-lg md:text-xl text-slate-400 max-w-xl mx-auto md:mx-0 mb-8 leading-relaxed delay-100">
-                       I create exceptional web experiences and extract insights that support smarter decision-making.
-                       <br/>
-                       <span class="text-teal-400 italic font-medium block mt-2">"Where design meets data"</span>
+                    <p
+                        class="reveal reveal-up text-lg md:text-xl text-slate-400 max-w-xl mx-auto md:mx-0 mb-8 leading-relaxed delay-100">
+                        I create exceptional web experiences and extract insights that support smarter decision-making.
+                        <br />
+                        <span class="text-teal-400 italic font-medium block mt-2">"Where design meets data"</span>
                     </p>
 
                     <!-- Social Links -->
                     <div class="reveal reveal-up flex justify-center md:justify-start gap-4 mb-8">
-                        <a href="https://www.instagram.com/_alimohamed_84?igsh=MXc2MzF5cDN0ZzVoNQ%3D%3D&utm_source=qr" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-gradient-to-tr hover:from-purple-500 hover:to-pink-500 hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
+                        <a href="https://www.instagram.com/_alimohamed_84?igsh=MXc2MzF5cDN0ZzVoNQ%3D%3D&utm_source=qr"
+                            target="_blank"
+                            class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-gradient-to-tr hover:from-purple-500 hover:to-pink-500 hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
                             <i class="fa-brands fa-instagram text-2xl"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/ali-mohamed-b7599036a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077b5] hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
+                        <a href="https://www.linkedin.com/in/ali-mohamed-b7599036a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                            target="_blank"
+                            class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077b5] hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
                             <i class="fa-brands fa-linkedin text-2xl"></i>
                         </a>
-                        <a href="https://www.facebook.com/share/1JkuikmZqK/?mibextid=wwXIfr" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#1877f2] hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
+                        <a href="https://www.facebook.com/share/1JkuikmZqK/?mibextid=wwXIfr" target="_blank"
+                            class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#1877f2] hover:border-transparent transition-all hover:-translate-y-1 shadow-lg">
                             <i class="fa-brands fa-facebook text-2xl"></i>
                         </a>
                     </div>
@@ -261,20 +310,27 @@
 
                 <!-- Profile Image with 3D Tilt -->
                 <div class="reveal reveal-right flex-shrink-0 mt-8 md:mt-20 perspective-container">
-                    <div id="profile-card" class="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-full md:rounded-3xl overflow-hidden border border-slate-700 shadow-2xl shadow-teal-500/10 tilt-card cursor-pointer transition-all duration-300 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/10 via-transparent to-purple-500/10 z-10 pointer-events-none mix-blend-overlay"></div>
+                    <div id="profile-card"
+                        class="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-full md:rounded-3xl overflow-hidden border border-slate-700 shadow-2xl shadow-teal-500/10 tilt-card cursor-pointer transition-all duration-300 ease-out">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-teal-500/10 via-transparent to-purple-500/10 z-10 pointer-events-none mix-blend-overlay">
+                        </div>
                         <!-- IMPORTANT: Replace with your image file name if in same folder, e.g. "my-photo.jpg" -->
-                        <img src="img.jpg" alt="Ali Mohamed" class="w-full h-full object-cover object-top scale-105 transition-transform duration-700 hover:scale-110">
-                        
+                        <img src="img.jpg" alt="Ali Mohamed"
+                            class="w-full h-full object-cover object-top scale-105 transition-transform duration-700 hover:scale-110">
+
                         <!-- Reflection Glare -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 z-20"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 z-20">
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 hover:text-teal-400 transition-colors cursor-pointer z-20 p-2">
+        <a href="#about"
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 hover:text-teal-400 transition-colors cursor-pointer z-20 p-2">
             <i class="fa-solid fa-chevron-down text-2xl"></i>
         </a>
     </section>
@@ -283,41 +339,53 @@
     <section id="about" class="py-24 bg-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal reveal-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About <span class="text-teal-400">Me</span></h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About <span class="text-teal-400">Me</span>
+                </h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-teal-500 to-blue-500 mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-teal-500 animate-float-slow group" style="animation-delay: 0s;">
-                    <div class="bg-teal-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-teal-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-teal-500 group-hover:text-slate-900">
+                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-teal-500 animate-float-slow group"
+                    style="animation-delay: 0s;">
+                    <div
+                        class="bg-teal-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-teal-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-teal-500 group-hover:text-slate-900">
                         <i class="fa-solid fa-graduation-cap text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">Education</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">Education
+                    </h3>
                     <p class="text-slate-400 leading-relaxed group-hover:text-slate-300">
-                        A student at the Faculty of Artificial Intelligence, Delta University for Science and Technology.
+                        A student at the Faculty of Artificial Intelligence, Delta University for Science and
+                        Technology.
                     </p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-blue-500 animate-float-slow group" style="transition-delay: 100ms; animation-delay: 2s;">
-                    <div class="bg-blue-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-blue-500 animate-float-slow group"
+                    style="transition-delay: 100ms; animation-delay: 2s;">
+                    <div
+                        class="bg-blue-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-blue-500 group-hover:text-white">
                         <i class="fa-solid fa-bolt text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Soft Skills</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Soft
+                        Skills</h3>
                     <p class="text-slate-400 leading-relaxed group-hover:text-slate-300">
                         I am a fast learner, detail-oriented, and enjoy working in collaborative environments.
                     </p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-purple-500 animate-float-slow group" style="transition-delay: 200ms; animation-delay: 4s;">
-                    <div class="bg-purple-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-purple-500 group-hover:text-white">
+                <div class="reveal reveal-up glass-card p-8 rounded-2xl border-t-4 border-purple-500 animate-float-slow group"
+                    style="transition-delay: 200ms; animation-delay: 4s;">
+                    <div
+                        class="bg-purple-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform duration-300 group-hover:bg-purple-500 group-hover:text-white">
                         <i class="fa-solid fa-bullseye text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Goal</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Goal
+                    </h3>
                     <p class="text-slate-400 leading-relaxed group-hover:text-slate-300">
-                        My goal is to become a professional Full-Stack Developer and Data Scientist, contributing to impactful projects
+                        My goal is to become a professional Full-Stack Developer and Data Scientist, contributing to
+                        impactful projects
                     </p>
                 </div>
             </div>
@@ -328,52 +396,76 @@
     <section id="skills" class="py-24 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal reveal-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">My <span class="text-teal-400">Skills</span></h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">My <span class="text-teal-400">Skills</span>
+                </h2>
                 <p class="text-slate-400 max-w-2xl mx-auto">Technologies I work with.</p>
             </div>
 
             <!-- Changed grid to md:grid-cols-3 to accommodate new card -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
+
                 <!-- Languages -->
-                <div class="reveal reveal-left bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-teal-500/50 transition-colors duration-300 shadow-lg hover:shadow-teal-500/10" style="animation-delay: 1s;">
+                <div class="reveal reveal-left bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-teal-500/50 transition-colors duration-300 shadow-lg hover:shadow-teal-500/10"
+                    style="animation-delay: 1s;">
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                        <div class="p-2 bg-teal-500/10 rounded-lg"><i class="fa-solid fa-code text-teal-400"></i></div> Languages
+                        <div class="p-2 bg-teal-500/10 rounded-lg"><i class="fa-solid fa-code text-teal-400"></i></div>
+                        Languages
                     </h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">HTML</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">CSS</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-500/10 transition-all cursor-default">Python</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-default">C#</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-300 hover:border-yellow-400 hover:bg-yellow-400/10 transition-all cursor-default">JavaScript</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">HTML</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">CSS</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-500/10 transition-all cursor-default">Python</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-default">C#</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-300 hover:border-yellow-400 hover:bg-yellow-400/10 transition-all cursor-default">JavaScript</span>
                     </div>
                 </div>
 
                 <!-- Frameworks -->
-                <div class="reveal reveal-up bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-blue-500/50 transition-colors duration-300 shadow-lg hover:shadow-blue-500/10" style="animation-delay: 3s;">
+                <div class="reveal reveal-up bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-blue-500/50 transition-colors duration-300 shadow-lg hover:shadow-blue-500/10"
+                    style="animation-delay: 3s;">
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                        <div class="p-2 bg-blue-500/10 rounded-lg"><i class="fa-solid fa-layer-group text-blue-400"></i></div> Frameworks
+                        <div class="p-2 bg-blue-500/10 rounded-lg"><i class="fa-solid fa-layer-group text-blue-400"></i>
+                        </div> Frameworks
                     </h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">React.js</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-default">Bootstrap</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">Tailwind CSS</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">React.js</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-default">Bootstrap</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-teal-400 hover:border-teal-500 hover:bg-teal-500/10 transition-all cursor-default">Tailwind
+                            CSS</span>
                     </div>
                 </div>
 
                 <!-- Data Tools (New Card) -->
-                <div class="reveal reveal-right bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-yellow-500/50 transition-colors duration-300 shadow-lg hover:shadow-yellow-500/10" style="animation-delay: 5s;">
+                <div class="reveal reveal-right bg-slate-900 rounded-2xl p-8 border border-slate-800 animate-float-slow hover:border-yellow-500/50 transition-colors duration-300 shadow-lg hover:shadow-yellow-500/10"
+                    style="animation-delay: 5s;">
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                         <div class="p-2 bg-yellow-500/10 rounded-lg"><i class="fa-solid fa-chart-pie text-yellow-500"></i></div> Data Tools
+                        <div class="p-2 bg-yellow-500/10 rounded-lg"><i
+                                class="fa-solid fa-chart-pie text-yellow-500"></i></div> Data Tools
                     </h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-default">SQL</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-500/10 transition-all cursor-default">Power BI</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-300 hover:border-blue-400 hover:bg-blue-400/10 transition-all cursor-default">Pandas</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-300 hover:border-blue-400 hover:bg-blue-400/10 transition-all cursor-default">NumPy</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-orange-400 hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-default">Matplotlib</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-default">Seaborn</span>
-                        <span class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-green-500 hover:border-green-600 hover:bg-green-600/10 transition-all cursor-default">Excel</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-default">SQL</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-500/10 transition-all cursor-default">Power
+                            BI</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-300 hover:border-blue-400 hover:bg-blue-400/10 transition-all cursor-default">Pandas</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-300 hover:border-blue-400 hover:bg-blue-400/10 transition-all cursor-default">NumPy</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-orange-400 hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-default">Matplotlib</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-500/10 transition-all cursor-default">Seaborn</span>
+                        <span
+                            class="skill-tag px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 hover:text-green-500 hover:border-green-600 hover:bg-green-600/10 transition-all cursor-default">Excel</span>
                     </div>
                 </div>
 
@@ -385,7 +477,8 @@
     <section id="projects" class="py-24 bg-slate-900 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal reveal-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Featured <span class="text-teal-400">Projects</span></h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Featured <span
+                        class="text-teal-400">Projects</span></h2>
                 <p class="text-slate-400">Examples of my work in Frontend & Analysis </p>
             </div>
 
@@ -393,22 +486,32 @@
                 <!-- Project 1 (Left Reveal) -->
                 <div class="flex flex-col lg:flex-row gap-12 items-center">
                     <div class="reveal reveal-left w-full lg:w-3/5">
-                        <div class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
-                            <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-                            <img src="capture_20251205231105636.bmp" alt="Web App" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
+                            <div
+                                class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <img src="capture_20251205231105636.bmp" alt="Web App"
+                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                             <!-- Overlay Content on Hover -->
-                            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
-                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW PROJECT <i class="fa-solid fa-arrow-right ml-2"></i></span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
+                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW PROJECT <i
+                                        class="fa-solid fa-arrow-right ml-2"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="reveal reveal-right w-full lg:w-2/5 space-y-6">
-                        <h3 class="text-3xl font-bold text-white group-hover:text-teal-400 transition-colors">Modern Dashboard</h3>
+                        <h3 class="text-3xl font-bold text-white group-hover:text-teal-400 transition-colors">Modern
+                            Dashboard</h3>
                         <p class="text-slate-400 leading-relaxed">
-                           A responsive frontend for a dashboard built with HTML and CSS. Features dark mode and real-time data visualization.
+                            A responsive frontend for a dashboard built with HTML and CSS. Features dark mode and
+                            real-time data visualization.
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">html</span>
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">css</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">html</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">css</span>
                         </div>
                     </div>
                 </div>
@@ -416,22 +519,31 @@
                 <!-- Project 2 (Right Reveal) -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
                     <div class="reveal reveal-right w-full lg:w-3/5">
-                        <div class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
-                            <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-                            <img src="power bi.jpeg" alt="Data" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                             <!-- Overlay Content on Hover -->
-                             <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
-                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW ANALYSIS <i class="fa-solid fa-arrow-right ml-2"></i></span>
+                        <div
+                            class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
+                            <div
+                                class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <img src="power bi.jpeg" alt="Data"
+                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            <!-- Overlay Content on Hover -->
+                            <div
+                                class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
+                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW ANALYSIS <i
+                                        class="fa-solid fa-arrow-right ml-2"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="reveal reveal-left w-full lg:w-2/5 space-y-6 text-left lg:text-right">
                         <h3 class="text-3xl font-bold text-white">Data Analysis</h3>
                         <p class="text-slate-400 leading-relaxed">
-                            Creating interactive dashboards and visualizations in Power BI to extract meaningful insights and reveal trends
+                            Creating interactive dashboards and visualizations in Power BI to extract meaningful
+                            insights and reveal trends
                         </p>
                         <div class="flex flex-wrap gap-2 justify-start lg:justify-end">
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Power BI</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Power
+                                BI</span>
                         </div>
                     </div>
                 </div>
@@ -439,27 +551,39 @@
                 <!-- Project 3 (Left Reveal - Machine Learning / Jupyter) -->
                 <div class="flex flex-col lg:flex-row gap-12 items-center">
                     <div class="reveal reveal-left w-full lg:w-3/5">
-                        <div class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
-                            <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-                            <img src="capture_20251205233753972.bmp" alt="Machine Learning" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="group relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800 aspect-video cursor-pointer">
+                            <div
+                                class="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <img src="capture_20251205233753972.bmp" alt="Machine Learning"
+                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                             <!-- Overlay Content on Hover -->
-                            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
-                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW NOTEBOOK <i class="fa-solid fa-arrow-right ml-2"></i></span>
+                            <div
+                                class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
+                                <span class="text-teal-400 font-bold tracking-widest text-sm">VIEW NOTEBOOK <i
+                                        class="fa-solid fa-arrow-right ml-2"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="reveal reveal-right w-full lg:w-2/5 space-y-6">
-                        <h3 class="text-3xl font-bold text-white group-hover:text-teal-400 transition-colors">Preprocessing & Machine Learning</h3>
+                        <h3 class="text-3xl font-bold text-white group-hover:text-teal-400 transition-colors">
+                            Preprocessing & Machine Learning</h3>
                         <p class="text-slate-400 leading-relaxed">
-                            A comprehensive project focused on data preprocessing and building machine learning models. You can view the code and execution directly in the Jupyter Notebook.
+                            A comprehensive project focused on data preprocessing and building machine learning models.
+                            You can view the code and execution directly in the Jupyter Notebook.
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">pandas</span>
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Scikit-Learn</span>
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Matplotlib</span>
-                            <span class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Seaborn</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">pandas</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Scikit-Learn</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Matplotlib</span>
+                            <span
+                                class="px-3 py-1 bg-slate-950 border border-slate-800 rounded-full text-xs text-slate-300">Seaborn</span>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -471,95 +595,135 @@
     <section id="certificates" class="py-24 bg-slate-950 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal reveal-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">My <span class="text-teal-400">Certificates</span></h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">My <span
+                        class="text-teal-400">Certificates</span></h2>
                 <p class="text-slate-400 max-w-2xl mx-auto">Professional qualifications and achievements.</p>
             </div>
 
             <!-- Detail Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Certificate Card 1 -->
-                <div class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden">
+                <div
+                    class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i class="fa-solid fa-certificate text-6xl text-teal-400"></i>
                     </div>
                     <div class="mb-4">
-                        <span class="text-xs font-bold text-teal-400 tracking-wider uppercase border border-teal-500/20 bg-teal-500/5 px-2 py-1 rounded">Development</span>
+                        <span
+                            class="text-xs font-bold text-teal-400 tracking-wider uppercase border border-teal-500/20 bg-teal-500/5 px-2 py-1 rounded">Development</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">Frontend Web Development</h3>
-                    <p class="text-sm text-slate-400 mb-4">Mastered HTML, CSS, JavaScript, and React to build responsive web applications.</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">Frontend
+                        Web Development</h3>
+                    <p class="text-sm text-slate-400 mb-4">Mastered HTML, CSS, JavaScript, and React to build responsive
+                        web applications.</p>
                     <div class="flex items-center justify-between mt-auto border-t border-slate-800 pt-4">
-                        <span class="text-xs text-slate-500 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> 2023</span>
-                        <span class="text-sm font-medium text-white group-hover:text-teal-400 flex items-center gap-1 transition-colors cursor-pointer">View <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
+                        <span class="text-xs text-slate-500 flex items-center gap-1"><i
+                                class="fa-regular fa-calendar"></i> 2023</span>
+                        <span
+                            class="text-sm font-medium text-white group-hover:text-teal-400 flex items-center gap-1 transition-colors cursor-pointer">View
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
                     </div>
                 </div>
 
                 <!-- Certificate Card 2 -->
-                <div class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden" style="transition-delay: 100ms;">
+                <div class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden"
+                    style="transition-delay: 100ms;">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i class="fa-solid fa-chart-simple text-6xl text-blue-400"></i>
                     </div>
                     <div class="mb-4">
-                        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase border border-blue-500/20 bg-blue-500/5 px-2 py-1 rounded">Data Science</span>
+                        <span
+                            class="text-xs font-bold text-blue-400 tracking-wider uppercase border border-blue-500/20 bg-blue-500/5 px-2 py-1 rounded">Data
+                            Science</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Python for Data Analysis</h3>
-                    <p class="text-sm text-slate-400 mb-4">Analyzing and visualizing data using Pandas, NumPy, and Matplotlib libraries.</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Python for
+                        Data Analysis</h3>
+                    <p class="text-sm text-slate-400 mb-4">Analyzing and visualizing data using Pandas, NumPy, and
+                        Matplotlib libraries.</p>
                     <div class="flex items-center justify-between mt-auto border-t border-slate-800 pt-4">
-                        <span class="text-xs text-slate-500 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> 2023</span>
-                        <span class="text-sm font-medium text-white group-hover:text-blue-400 flex items-center gap-1 transition-colors cursor-pointer">View <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
+                        <span class="text-xs text-slate-500 flex items-center gap-1"><i
+                                class="fa-regular fa-calendar"></i> 2023</span>
+                        <span
+                            class="text-sm font-medium text-white group-hover:text-blue-400 flex items-center gap-1 transition-colors cursor-pointer">View
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
                     </div>
                 </div>
 
                 <!-- Certificate Card 3 -->
-                <div class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden" style="transition-delay: 200ms;">
+                <div class="reveal reveal-up glass-card p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group relative overflow-hidden"
+                    style="transition-delay: 200ms;">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i class="fa-solid fa-database text-6xl text-yellow-500"></i>
                     </div>
                     <div class="mb-4">
-                        <span class="text-xs font-bold text-yellow-500 tracking-wider uppercase border border-yellow-500/20 bg-yellow-500/5 px-2 py-1 rounded">Analytics</span>
+                        <span
+                            class="text-xs font-bold text-yellow-500 tracking-wider uppercase border border-yellow-500/20 bg-yellow-500/5 px-2 py-1 rounded">Analytics</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-500 transition-colors">Power BI Data Analyst</h3>
-                    <p class="text-sm text-slate-400 mb-4">Creating interactive dashboards and reports to drive business intelligence.</p>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-500 transition-colors">Power BI
+                        Data Analyst</h3>
+                    <p class="text-sm text-slate-400 mb-4">Creating interactive dashboards and reports to drive business
+                        intelligence.</p>
                     <div class="flex items-center justify-between mt-auto border-t border-slate-800 pt-4">
-                        <span class="text-xs text-slate-500 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> 2024</span>
-                        <span class="text-sm font-medium text-white group-hover:text-yellow-500 flex items-center gap-1 transition-colors cursor-pointer">View <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
+                        <span class="text-xs text-slate-500 flex items-center gap-1"><i
+                                class="fa-regular fa-calendar"></i> 2024</span>
+                        <span
+                            class="text-sm font-medium text-white group-hover:text-yellow-500 flex items-center gap-1 transition-colors cursor-pointer">View
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
                     </div>
                 </div>
             </div>
 
             <!-- Certificates Gallery (Added as requested) -->
             <div class="mt-24">
-                <h3 class="text-2xl font-bold text-white mb-10 flex items-center justify-center md:justify-start gap-3 reveal reveal-up">
+                <h3
+                    class="text-2xl font-bold text-white mb-10 flex items-center justify-center md:justify-start gap-3 reveal reveal-up">
                     <i class="fa-solid fa-images text-teal-400"></i>
                     Certificates Gallery
                 </h3>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Cert Image 1 -->
-                    <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer">
-                        <img src="شهاده.jpeg" alt="Certificate 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-teal-500/20">
-                            <span class="text-teal-400 font-bold border border-teal-500 px-4 py-2 rounded-full bg-teal-500/10 backdrop-blur-sm">View</span>
+                    <div
+                        class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer">
+                        <img src="شهاده.jpeg" alt="Certificate 1"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-teal-500/20">
+                            <span
+                                class="text-teal-400 font-bold border border-teal-500 px-4 py-2 rounded-full bg-teal-500/10 backdrop-blur-sm">View</span>
                         </div>
                     </div>
                     <!-- Cert Image 2 -->
-                     <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer" style="transition-delay: 100ms">
-                        <img src="شهاده 2.jpeg" alt="Certificate 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-blue-500/20">
-                            <span class="text-blue-400 font-bold border border-blue-500 px-4 py-2 rounded-full bg-blue-500/10 backdrop-blur-sm">View</span>
+                    <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer"
+                        style="transition-delay: 100ms">
+                        <img src="شهاده 2.jpeg" alt="Certificate 2"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-blue-500/20">
+                            <span
+                                class="text-blue-400 font-bold border border-blue-500 px-4 py-2 rounded-full bg-blue-500/10 backdrop-blur-sm">View</span>
                         </div>
                     </div>
                     <!-- Cert Image 3 -->
-                     <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer" style="transition-delay: 200ms">
-                        <img src="شهاده 3.jpeg" alt="Certificate 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-purple-500/20">
-                            <span class="text-purple-400 font-bold border border-purple-500 px-4 py-2 rounded-full bg-purple-500/10 backdrop-blur-sm">View</span>
+                    <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer"
+                        style="transition-delay: 200ms">
+                        <img src="شهاده 3.jpeg" alt="Certificate 3"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-purple-500/20">
+                            <span
+                                class="text-purple-400 font-bold border border-purple-500 px-4 py-2 rounded-full bg-purple-500/10 backdrop-blur-sm">View</span>
                         </div>
                     </div>
-                     <!-- Cert Image 4 -->
-                     <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer" style="transition-delay: 300ms">
-                        <img src="capture_20251206000426589.bmp" alt="Certificate 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-yellow-500/20">
-                            <span class="text-yellow-500 font-bold border border-yellow-500 px-4 py-2 rounded-full bg-yellow-500/10 backdrop-blur-sm">View</span>
+                    <!-- Cert Image 4 -->
+                    <div class="reveal reveal-up group relative rounded-xl overflow-hidden border border-slate-700 aspect-[4/3] cursor-pointer"
+                        style="transition-delay: 300ms">
+                        <img src="capture_20251206000426589.bmp" alt="Certificate 4"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center border-4 border-yellow-500/20">
+                            <span
+                                class="text-yellow-500 font-bold border border-yellow-500 px-4 py-2 rounded-full bg-yellow-500/10 backdrop-blur-sm">View</span>
                         </div>
                     </div>
                 </div>
@@ -571,12 +735,14 @@
     <section id="contact" class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-slate-950 -z-10"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass rounded-3xl p-8 md:p-12 border border-slate-700 shadow-2xl reveal reveal-up relative overflow-hidden">
+            <div
+                class="glass rounded-3xl p-8 md:p-12 border border-slate-700 shadow-2xl reveal reveal-up relative overflow-hidden">
                 <!-- Background decorative blob -->
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px]"></div>
 
                 <div class="text-center mb-10 relative z-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Contact <span class="text-teal-400">Me</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Contact <span
+                            class="text-teal-400">Me</span></h2>
                     <p class="text-slate-400">Thanks for getting in touch</p>
                 </div>
 
@@ -584,32 +750,45 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-sm font-medium text-slate-400">User Name</label>
-                            <input type="text" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600" placeholder="Enter User Name">
+                            <input type="text"
+                                class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600"
+                                placeholder="Enter User Name">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-medium text-slate-400">Phone Num</label>
-                            <input type="tel" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600" placeholder="Enter Phone Num">
+                            <input type="tel"
+                                class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600"
+                                placeholder="Enter Phone Num">
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label class="text-sm font-medium text-slate-400">Email</label>
-                        <input type="email" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600" placeholder="Enter Your Email">
+                        <input type="email"
+                            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:ring-1 focus:ring-teal-400 outline-none transition-all placeholder:text-slate-600"
+                            placeholder="Enter Your Email">
                     </div>
-                    
-                    <button type="button" class="w-full py-4 bg-teal-500 text-slate-900 font-bold rounded-lg hover:bg-teal-400 transition-all transform hover:scale-[1.02] shadow-lg shadow-teal-500/25 active:scale-95">
+
+                    <button type="button"
+                        class="w-full py-4 bg-teal-500 text-slate-900 font-bold rounded-lg hover:bg-teal-400 transition-all transform hover:scale-[1.02] shadow-lg shadow-teal-500/25 active:scale-95">
                         SEND MESSAGE
                     </button>
                 </form>
 
                 <div class="mt-10 flex justify-center gap-8 border-t border-slate-700/50 pt-8 relative z-10">
-                    <a href="https://www.instagram.com/_alimohamed_84?igsh=MXc2MzF5cDN0ZzVoNQ%3D%3D&utm_source=qr" class="flex flex-col items-center gap-2 text-slate-400 hover:text-pink-500 transition-colors group">
-                        <i class="fa-brands fa-instagram text-2xl transform group-hover:scale-125 transition-transform"></i>
+                    <a href="https://www.instagram.com/_alimohamed_84?igsh=MXc2MzF5cDN0ZzVoNQ%3D%3D&utm_source=qr"
+                        class="flex flex-col items-center gap-2 text-slate-400 hover:text-pink-500 transition-colors group">
+                        <i
+                            class="fa-brands fa-instagram text-2xl transform group-hover:scale-125 transition-transform"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/ali-mohamed-b7599036a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="flex flex-col items-center gap-2 text-slate-400 hover:text-blue-500 transition-colors group">
-                        <i class="fa-brands fa-linkedin text-2xl transform group-hover:scale-125 transition-transform"></i>
+                    <a href="https://www.linkedin.com/in/ali-mohamed-b7599036a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                        class="flex flex-col items-center gap-2 text-slate-400 hover:text-blue-500 transition-colors group">
+                        <i
+                            class="fa-brands fa-linkedin text-2xl transform group-hover:scale-125 transition-transform"></i>
                     </a>
-                    <a href="https://www.facebook.com/share/1JkuikmZqK/?mibextid=wwXIfr" class="flex flex-col items-center gap-2 text-slate-400 hover:text-blue-600 transition-colors group">
-                        <i class="fa-brands fa-facebook text-2xl transform group-hover:scale-125 transition-transform"></i>
+                    <a href="https://www.facebook.com/share/1JkuikmZqK/?mibextid=wwXIfr"
+                        class="flex flex-col items-center gap-2 text-slate-400 hover:text-blue-600 transition-colors group">
+                        <i
+                            class="fa-brands fa-facebook text-2xl transform group-hover:scale-125 transition-transform"></i>
                     </a>
                 </div>
             </div>
@@ -632,7 +811,7 @@
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                    revealOnScroll(); 
+                    revealOnScroll();
                 }, 500);
             }, 1000);
         });
@@ -711,12 +890,12 @@
         const profileCard = document.getElementById('profile-card');
 
         // Mouse Move Parallax & 3D Tilt
-        if(heroSection && blob1 && blob2 && profileCard) {
+        if (heroSection && blob1 && blob2 && profileCard) {
             heroSection.addEventListener('mousemove', (e) => {
                 // Parallax for blobs
                 const x = e.clientX / window.innerWidth;
                 const y = e.clientY / window.innerHeight;
-                
+
                 blob1.style.transform = `translate(${x * -30}px, ${y * -30}px)`;
                 blob2.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
 
@@ -725,10 +904,10 @@
                 const rect = profileCard.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
-                
+
                 // Limit the tilt angle
-                const maxTilt = 10; 
-                
+                const maxTilt = 10;
+
                 const moveX = (e.clientX - centerX) / (window.innerWidth / 2) * maxTilt;
                 const moveY = (e.clientY - centerY) / (window.innerHeight / 2) * maxTilt;
 
@@ -743,4 +922,5 @@
 
     </script>
 </body>
+
 </html>
